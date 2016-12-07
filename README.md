@@ -122,7 +122,7 @@ c.Assert(time.Duration(22), IsLargerThan, time.Duration(11))
 Check that a value is larger than or equal to provided.
 
 Example:
-```golang
+```go
 c.Assert(22, IsLargerThanOrEqualTo, 11)
 c.Assert(22, Not(IsLargerThanOrEqualTo), 66)
 c.Assert(22, IsLargerThanOrEqualTo, 22)
