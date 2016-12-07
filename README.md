@@ -31,6 +31,13 @@ import (
 
 ## Checkers
 
+* [ThrowsPanicThatMatches](#throwspanicthatmatches)
+* [IsEmpty](#isempty)
+* [IsLessThan](#islessthan)
+* [IsLessThanOrEqual](#islessthanorequal)
+* [IsLargerThan](#islargerthan)
+* [IsLargerThanOrEqualTo](#islargerthanorequalto)
+
 ### ThrowsPanicThatMatches
 
 Check for a panic message that should occur.
