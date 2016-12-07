@@ -22,7 +22,7 @@ go get -u github.com/echocat/gocheck-addons
 ```
 
 Import in source code files:
-```golang
+```go
 import (
 	. "github.com/echocat/gocheck-addons"
 	. "gopkg.in/check.v1"
@@ -43,7 +43,7 @@ import (
 Check for a panic message that should occur.
 
 Example:
-```golang
+```go
 c.Assert(func() {
     panic(errors.New("foo123"))
 }, ThrowsPanicThatMatches, "foo1.3")
@@ -60,7 +60,7 @@ c.Assert(func() {
 Check that a value is empty. Currently support strings, arrays and maps.
 
 Example:
-```golang
+```go
 c.Assert("abc", Not(IsEmpty))
 c.Assert("", IsEmpty)
 c.Assert([]string{"abc"}, Not(IsEmpty))
@@ -76,7 +76,7 @@ c.Assert(map[string]int{}, IsEmpty)
 Check that a value is less than to provided.
 
 Example:
-```golang
+```go
 c.Assert(22, IsLessThan, 66)
 c.Assert(22, Not(IsLessThan), 11)
 c.Assert(22, Not(IsLessThan), 22)
@@ -91,7 +91,7 @@ c.Assert(time.Duration(22), IsLessThan, time.Duration(66))
 Check that a value is less than or equal to provided.
 
 Example:
-```golang
+```go
 c.Assert(22, IsLessThanOrEqualTo, 66)
 c.Assert(22, IsLessThanOrEqualTo, 22)
 c.Assert(22, Not(IsLessThanOrEqualTo), 11)
@@ -107,7 +107,7 @@ c.Assert(time.Duration(22), IsLessThanOrEqualTo, time.Duration(22))
 Check that a value is larger than to provided.
 
 Example:
-```golang
+```go
 c.Assert(22, IsLargerThan, 11)
 c.Assert(22, Not(IsLargerThan), 66)
 c.Assert(22, Not(IsLargerThan), 22)
