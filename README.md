@@ -71,6 +71,48 @@ c.Assert(map[string]int{"abc": 1}, Not(IsEmpty))
 c.Assert(map[string]int{}, IsEmpty)
 ```
 
+### Contains
+
+Check that a specific value is contained in another. Currently support only strings.
+
+Example:
+```go
+c.Assert("abc", Contains, "a")
+c.Assert("abc", Contains, "b")
+c.Assert("abc", Contains, "c")
+c.Assert("abc", Contains, "abc")
+c.Assert("abc", Contains, "")
+c.Assert("abc", Not(Contains), "x")
+```
+
+### HasPrefix
+
+Check that a specific value prefixes another. Currently support only strings.
+
+Example:
+```go
+c.Assert("abc", HasPrefix, "a")
+c.Assert("abc", HasPrefix, "ab")
+c.Assert("abc", HasPrefix, "abc")
+c.Assert("abc", HasPrefix, "")
+c.Assert("abc", Not(HasPrefix), "b")
+c.Assert("abc", Not(HasPrefix), "c")
+```
+
+### HasSuffix
+
+Check that a specific value suffixes another. Currently support only strings.
+
+Example:
+```go
+c.Assert("abc", HasSuffix, "c")
+c.Assert("abc", HasSuffix, "bc")
+c.Assert("abc", HasSuffix, "abc")
+c.Assert("abc", HasSuffix, "")
+c.Assert("abc", Not(HasSuffix), "a")
+c.Assert("abc", Not(HasSuffix), "b")
+```
+
 ### IsLessThan
 
 Check that a value is less than to provided.

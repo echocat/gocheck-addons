@@ -1,49 +1,17 @@
 package addons
 
 import (
-	"errors"
 	. "gopkg.in/check.v1"
 	"time"
 )
 
-type CheckersTest struct{}
+type NumbersTest struct{}
 
 func init() {
-	Suite(&CheckersTest{})
+	Suite(&NumbersTest{})
 }
 
-type enclosesString struct {
-	string
-}
-
-func (instance enclosesString) String() string {
-	return instance.string
-}
-
-func (s *CheckersTest) TestThrowsPanicThatMatches(c *C) {
-	c.Assert(func() {
-		panic(errors.New("foo123"))
-	}, ThrowsPanicThatMatches, "foo1.3")
-	c.Assert(func() {
-		panic(enclosesString{string: "foo123"})
-	}, ThrowsPanicThatMatches, "foo1.3")
-	c.Assert(func() {
-		panic("foo123")
-	}, ThrowsPanicThatMatches, "foo1.3")
-}
-
-func (s *CheckersTest) TestIsEmpty(c *C) {
-	c.Assert("abc", Not(IsEmpty))
-	c.Assert("", IsEmpty)
-	c.Assert([]string{"abc"}, Not(IsEmpty))
-	c.Assert([]string{}, IsEmpty)
-	c.Assert([]int{1}, Not(IsEmpty))
-	c.Assert([]int{}, IsEmpty)
-	c.Assert(map[string]int{"abc": 1}, Not(IsEmpty))
-	c.Assert(map[string]int{}, IsEmpty)
-}
-
-func (s *CheckersTest) TestIsLessThan(c *C) {
+func (s *NumbersTest) TestIsLessThan(c *C) {
 	c.Assert(22, IsLessThan, 66)
 	c.Assert(22, Not(IsLessThan), 11)
 	c.Assert(22, Not(IsLessThan), 22)
@@ -57,7 +25,7 @@ func (s *CheckersTest) TestIsLessThan(c *C) {
 	c.Assert(message, Equals, "'obtained' type not equal to the type to 'compareTo' type.")
 }
 
-func (s *CheckersTest) TestIsLessThanOrEqual(c *C) {
+func (s *NumbersTest) TestIsLessThanOrEqual(c *C) {
 	c.Assert(22, IsLessThanOrEqualTo, 66)
 	c.Assert(22, IsLessThanOrEqualTo, 22)
 	c.Assert(22, Not(IsLessThanOrEqualTo), 11)
@@ -72,7 +40,7 @@ func (s *CheckersTest) TestIsLessThanOrEqual(c *C) {
 	c.Assert(message, Equals, "'obtained' type not equal to the type to 'compareTo' type.")
 }
 
-func (s *CheckersTest) TestIsLargerThan(c *C) {
+func (s *NumbersTest) TestIsLargerThan(c *C) {
 	c.Assert(22, IsLargerThan, 11)
 	c.Assert(22, Not(IsLargerThan), 66)
 	c.Assert(22, Not(IsLargerThan), 22)
@@ -86,7 +54,7 @@ func (s *CheckersTest) TestIsLargerThan(c *C) {
 	c.Assert(message, Equals, "'obtained' type not equal to the type to 'compareTo' type.")
 }
 
-func (s *CheckersTest) TestIsLargerThanOrEqualTo(c *C) {
+func (s *NumbersTest) TestIsLargerThanOrEqualTo(c *C) {
 	c.Assert(22, IsLargerThanOrEqualTo, 11)
 	c.Assert(22, Not(IsLargerThanOrEqualTo), 66)
 	c.Assert(22, IsLargerThanOrEqualTo, 22)
